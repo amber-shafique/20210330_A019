@@ -23,12 +23,21 @@ public class MainActivity extends AppCompatActivity {
 
         btnAdd= findViewById(R.id.buttonAdd);
         btnView=findViewById(R.id.buttonView);
+        editName=findViewById(R.id.editTextName);
+        editAge=findViewById(R.id.editTextAge);
+        switchIsActive=findViewById(R.id.switchisActive);
 
         btnAdd.setOnClickListener(new View.OnClickListener()
         {
+            CustomerModel customerModel;
+
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"Add Button Clicked",Toast.LENGTH_SHORT).show();
+
+                CustomerModel customerModel=new CustomerModel(editName.getText().toString(), Integer.parseInt(editAge.getText().toString()),switchIsActive.isChecked(),1);
+
+                Toast.makeText(MainActivity.this,customerModel.toString(),Toast.LENGTH_LONG).show();
+              //  Toast.makeText(MainActivity.this,"Add Button Clicked",Toast.LENGTH_SHORT).show();
             }
         });
         btnView.setOnClickListener(new View.OnClickListener()
